@@ -24,7 +24,7 @@ export async function getStaticPaths() {
   console.log(meetupIds);
   client.close();
   return {
-    fallback: false, // tells next to generate a 404 page for not defined pages here
+    fallback: 'blocking', // tells next to generate a 404 page for not defined pages here
     paths: meetupIds.map((meetup) => ({
       params: {
         meetId: meetup._id.toString(),
